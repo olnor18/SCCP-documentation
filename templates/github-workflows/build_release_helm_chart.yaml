@@ -1,11 +1,9 @@
 name: Build and release
  
 on:
-  push:
-  #workflow_run:
-    #workflows: ["Version Bump"]
-    #branches: main
-    branches: release-wf-v1
+  workflow_run:
+    workflows: ["Version Bump"]
+    branches: [main]
     types: 
       - completed
 
@@ -36,8 +34,8 @@ jobs:
         with: 
           tag_name: ${{ env.VERSION_TAG }}
           release_name: Release ${{ env.VERSION_TAG }}
-          draft: true
-          prerelease: true
+          draft: false
+          prerelease: false
       # Connect the archive to the release
       - name: Upload Release Asset
         id: upload-release-asset 
