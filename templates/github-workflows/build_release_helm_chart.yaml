@@ -1,0 +1,52 @@
+name: Build and release
+ 
+on:
+  push:
+  #workflow_run:
+    #workflows: ["Version Bump"]
+    #branches: main
+    branches: release-wf-v1
+    types: 
+      - completed
+
+jobs:
+  build:
+    # Only run the job if the Version Bump action was succesfull
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    
+    runs-on: ubuntu-latest
+    env:
+      # Cut the version tag from the github ref e.g. refs/tags/v1.0.1
+      VERSION_TAG: ${{ github.ref | cut -f3- -d/ }}
+
+    steps:
+      - uses: actions/checkout@v2
+      # Lint the chart
+      - name: Lint
+        run: helm lint chart
+      # Build the archive to release
+      - name: Build
+        run: helm package chart
+      # Create the release
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with: 
+          tag_name: ${{ env.VERSION_TAG }}
+          release_name: Release ${{ env.VERSION_TAG }}
+          draft: true
+          prerelease: true
+      # Connect the archive to the release
+      - name: Upload Release Asset
+        id: upload-release-asset 
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} 
+          # Chart version is keept at 0.1.0 for all charts 
+          asset_path: ./mukube-vnet-0.1.0.tgz
+          asset_name: mukube-vnet-${{ env.VERSION_TAG }}.tgz
+          asset_content_type: application/zip
