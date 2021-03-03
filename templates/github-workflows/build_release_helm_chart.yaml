@@ -1,4 +1,4 @@
-name: Build and release
+name: Build and release helm chart
  
 on:
   workflow_run:
