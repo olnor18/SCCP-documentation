@@ -48,6 +48,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} 
           # Chart version is keept at 0.1.0 for all charts 
-          asset_path: ./mukube-vnet-0.1.0.tgz
-          asset_name: mukube-vnet-${{ env.VERSION_TAG }}.tgz
+          # Give the name of the .tgz file that helm package outputs
+          asset_path: #Helm package archive nave
+          asset_name: #The name of the release file e.g. mukube-chart-${{ env.VERSION_TAG }}.tgz
           asset_content_type: application/zip
