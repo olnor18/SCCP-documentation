@@ -1,7 +1,7 @@
 # Helm
 
 **Everything** that Distributed technologies will deploy on 
-our clusters will be so through helm.
+our clusters will be done through helm.
 
 ## Helm structure
 
@@ -29,7 +29,7 @@ more info can be found here: https://helm.sh/docs/topics/charts/
 ## Subcharts
 
 **Whenever** we use charts that are made by a third party and 
-only require to changes to the values file we will **reference** 
+only require changes to the values file we will **reference** 
 their chart instead of copying it. This done by adding a dependency 
 section to *Chart.yaml* file, see below.
 
@@ -54,7 +54,7 @@ to the values file with the name of the subchart.
     argo-cd:
       somevalue: world
 
-In the example with argo-cd everything in the argo-cd: will be forwarded
-and projected on top of the default values file in the subchart.
+In the example with argo-cd everything in the argo-cd will be forwarded
+and will overwrite the values in the values.yaml file in the subchart.
 
-More can be read here: https://helm.sh/docs/chart_template_guide/subcharts_and_globals/
+More can be read [here](https://helm.sh/docs/chart_template_guide/subcharts_and_globals/)
