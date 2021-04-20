@@ -26,10 +26,10 @@ Go to the **Settings** menu in the topbar.
 
 ### Change options
 In the **Options** tab under the **Merge button** section:
-- Uncheck **Allow merge commit**.
+- Uncheck **Allow squash merging**.
 - Uncheck **Allow rebase merging**.
 
-The only checked option should be **Allow squash merging**.
+The only checked option should be **Allow merge commit**.
 
 ### Add branch rule
 
