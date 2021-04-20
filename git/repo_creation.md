@@ -12,11 +12,13 @@ Under the [organization homepage](https://github.com/distributed-technologies) c
 
 - **Add a description.** Should be no longer than one sentence.
 
-- **Make public.**
+- Select **Public**.
 
-- **Add README.**
+- Check **Add a README file**.
 
-- **Add Apache Licence 2.0.**
+- Add **Apache Licence 2.0.**.
+
+- Click **Create repository** button.
 
 ## Change default settings
 
@@ -35,10 +37,11 @@ In the **Branches** tab under the **Branch protection rules** section:
 - Click the "Add rule" button.
 - Fill in "main" in the **Branch name pattern** input field.
 - Check **Require pull request reviews before merging** and:
-     - check **Dismiss stale pull request approvals when new commits are pushed**.
+     - Check **Dismiss stale pull request approvals when new commits are pushed**.
 - Check **Require status checks to pass before merging**.
 - Check **Require linear history**.
 - Check **Include administrators**.
+- Click **Create** button.
 
 ### Change access settings
 In the **Manage access** tab under the **Manage access** section: 
