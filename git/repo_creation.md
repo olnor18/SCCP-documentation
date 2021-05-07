@@ -39,7 +39,7 @@ In the **Branches** tab under the **Branch protection rules** section:
 - Check **Require pull request reviews before merging** and:
      - Check **Dismiss stale pull request approvals when new commits are pushed**.
 - Check **Require status checks to pass before merging**.
-- Check **Require linear history**.
+- Check **Require branches to be up to date before merging**.
 - Check **Include administrators**.
 - Click **Create** button.
 
