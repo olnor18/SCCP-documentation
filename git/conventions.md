@@ -45,23 +45,7 @@ and other files that are used to document the repository.
 
 ### /chart
 
-This is the folder for all our repos containing a helm chart.
-The chart will always be in the chart folder, which may
-contain 3 folders:
-
-- ./charts/
-- ./templates/
-- ./crds/
-
-and 3 files:
-
-- ./Chart.yaml
-- ./values.yaml
-- ./values.schema.json
-
-The values.schema.json is used to validate the value input 
-files, and should always ensure correct use of the chart, 
-more info can be found here: https://helm.sh/docs/topics/charts/
+For helm charts, look in: [Helm](../helm/index.md)
 
 ### /artifacts
 
