@@ -34,8 +34,8 @@ each of the commands.
 
 ## Folder conventions
 
-This section describes a list of folders with we all 
-agree on is our default way to add additional folders
+This section describes a list of folders which we all 
+agree is our default additional folders
 so they are named the same across platforms.
 
 ### /docs
