@@ -1,60 +1,25 @@
 # Helm
 
-**Everything** that Distributed technologies will deploy on 
-our clusters will be done through helm.
+Distributed technologies uses Helm to deploy services and applications on the platform. The following is a guideline describing how we use Helm. 
 
 ## Helm structure
 
-All repositories containing helm charts contain one folder 
-name '/chart' in the root of the repository.
+All repositories that contain helm charts has a folder 
+called `chart` in the root of the repository.
 
-This folder will always contain 3 files:
+This folder contains two files:
 
-- ./Chart.yaml
-- ./values.yaml
-- ./values.schema.json
+- Chart.yaml
+- values.yaml
 
-And may further contain 3 folders:
+And may further contain three folders:
 
-- ./charts/
-- ./templates/
-- ./crds/
-
-The values.schema.json is used to validate the value input 
-files, and should always ensure correct use of the chart, 
-more info can be found here: https://helm.sh/docs/topics/charts/
+- charts
+- templates
+- crds
 
 # Best practices
 
 ## Subcharts
 
-**Whenever** we use charts that are made by a third party and 
-only require changes to the values file we will **reference** 
-their chart instead of copying it. This done by adding a dependency 
-section to *Chart.yaml* file, see below.
-
-    dependencies:
-      - name: argo-cd
-        version: "2.17.1"
-        repository: "https://argoproj.github.io/argo-helm"
-
-The repository is not a Git repository but the Chart repository.
-All chart repositories can be explored using a browser navigating 
-to {repository}/index.yaml in the example above 
-https://argoproj.github.io/argo-helm/index.yaml
-
-### Values
-
-When overwriting the values of a subchart one adds a new section
-to the values file with the name of the subchart.
-
-    #values.yaml
-    somevalue: hello
-
-    argo-cd:
-      somevalue: world
-
-In the example with argo-cd everything in the argo-cd will be forwarded
-and will overwrite the values in the values.yaml file in the subchart.
-
-More can be read [here](https://helm.sh/docs/chart_template_guide/subcharts_and_globals/)
+When we use charts that are made by a third party we will reference it through an umbrella chart, as described in [Umbrella charts](). 
