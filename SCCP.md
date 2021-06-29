@@ -1,9 +1,9 @@
-(INSET LOGO)
+<img src="images/Energinet-logo.png" width="250" style="margin-bottom: 3%">
 ## SCCP
-The secure computation platform has emerged as a weapon to deal with some of the problemes the energisystem is facing, when the energy production is becomming renewable. One of the bigger problems are that renable energi forces the system to run close to the edge as the production of energy becomes highly flucturating. This calls for improved algorithms helping operators of the critical systems making decitions. The SCCP is the foundation on which these models will live in any given situation. 
+The secure computation platform has emerged as a weapon to deal with some of the problems the energisystem is facing, as the energy production is becomming more renewable. One of the bigger problems are that renable energi forces the system to run close to the edge as the production of energy becomes highly flucturating. This calls for improved algorithms that helps operators of the critical systems make decitions. The SCCP is the foundation on which these models will live in any given situation, providing a platform that raises the bar for securety while still having high compute. 
 
 ### Architecture
-The platform is essentially a kubernetes cluster with an agent supporting the Gitops workflow. Following the Gitops workflow all infrastructure is configured as code in sepperate service git repositories. A single environment repository holds the desired configuration of each service and the agent continously pulls them in and changes the actual state accordingly.   
+The platform is essentially a kubernetes cluster with an agent supporting the Gitops workflow. Following the Gitops workflow all infrastructure is configured as code in seperate service git repositories. A single environment repository holds the desired configuration of each service and the agent continously pulls them in and changes the actual state accordingly.   
 
 ### Hosting
 The platform is cloud agnostic, meaning that will be able to be setup both in bare metal situations as well as deployed in any cloud provider thus greatly increasing the stability and scalability of the platform, because vendor lock is avoided. 
@@ -39,5 +39,5 @@ Traefik is used an ingress controller handeling ingress events to route communic
 - [x] Loadbalancer (done)
 - [x] Distributed storage (done)
 - [] TTE
-- []PKI infrastructure
-- []One click build pipeline
+- [] PKI infrastructure
+- [] One click build pipeline
