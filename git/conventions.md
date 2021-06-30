@@ -34,9 +34,8 @@ each of the commands.
 
 ## Folder conventions
 
-This section describes a list of folders with we all 
-agree on is our default way to add additional folders
-so they are named the same across platforms.
+This section describes our naming convention for 
+additional folders in repositories.
 
 ### /docs
 
