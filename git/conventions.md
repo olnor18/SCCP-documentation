@@ -34,8 +34,6 @@ each of the commands.
 
 ## Folder conventions
 
-This section describes a list of folders which we all 
-agree is our default additional folders
 This section describes our naming convention for 
 additional folders in repositories.
 
