@@ -1,9 +1,11 @@
 <img src="images/Energinet-logo.png" width="250" style="margin-bottom: 3%">
 
-**Secure compute and communication platform** has emerged as a tool to deal with some of the problems the energy system is facing, as the production is shifting towards more renewable energy. One of the bigger problems is that renawable energy forces the system to run close to the edge as the production of energy becomes highly fluctuating. This calls for improved algorithms that helps operators of the critical systems make decisions. The SCCP is the foundation on which these models will live in any given situation, providing a platform that raises the bar for security both for communication and computation. 
+**Secure compute and communication platform** 
+The energy system is the most critical infrastructure needed to uphold basic functions in society, and it is key that it can not be subject to any adversarial attacks. The **SCCP** fuses hardware and software security in a **Trusted Execution Environment** to make sure that everything that is executed have been signed and approved to 
+run on the platform and only on the platform, meaning that a signed application will refuse to run anywhere else.  
 
 ### Architecture
-The platform is essentially a kubernetes cluster with an operator supporting the Gitops workflow. Following the Gitops workflow all infrastructure is configured as code in separate git repositories as individual services. A single environment repository holds the desired configuration of each service and the agent continously pulls them in and changes the actual state accordingly.   
+The platform is essentially a kubernetes cluster with an operator supporting the GitOps workflow. Following the GitOps workflow all infrastructure is configured as code in separate git repositories as individual services. The environment itself should be defined based on a single repository in the near future, describing the infrastructure provisioning, enabled system services, and referring hosted applications environment repositories.
 
 ### Hosting
 The platform is cloud agnostic, meaning that it will be able to be deployed onto both in bare metal situations as well as on deployed in any cloud provider thus greatly increasing the stability and scalability of the platform, because vendor lock-in is avoided. Avoiding vendor lock-in we reduce the risk caused by cloud providers having an outage, a security event or simply discontinues sevices, as a cloud agnostic platform can seamlessly move to whereever fits its demands. 
