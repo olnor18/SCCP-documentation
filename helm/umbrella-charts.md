@@ -22,7 +22,7 @@ The team had a discussion on the best way to try and either solve these problems
 An umbrella chart is a chart that holds another chart(s) as a dependency. This enables us to put custom manifests and resources into the templates folder of the umbrella chart, add acceptance tests, as well as having a protected main branch and good branching conventions. This means that we will add a repository for every service we have running on the cluster, even if we don't initially configure it. 
 
 ## How to create an umbrella chart
-1. To create an umbrella chart, first follow the steps in [creating a repository](repo_creation.md).
+1. To create an umbrella chart, first follow the steps in [creating a repository](../git/repo_creation.md).
 2. After having done this, you need to clone the repository onto your local machine, create a new branch and run ```helm create chart``` from the root folder of the repository. This will create a boiler plate helm chart for you to edit.
 3. Run the following command to clean out the Helm chart: ```cd chart && rm -rf charts && rm -rf templates/*```. Furthermore, you can delete the content of `values.yaml` and remove all the comments and the AppVersion field from `Chart.yaml`. 
 4.  Add your dependency in `Chart.yaml`. An example of how this is done can be found [here](https://helm.sh/docs/helm/helm_dependency/). It is possible to add an install condition to each dependency, so the deployment of the dependencies can be controlled from the values file. [Here](https://helm.sh/docs/chart_best_practices/dependencies/#conditions-and-tags) is an example of how to add a condition to a dependency. 
