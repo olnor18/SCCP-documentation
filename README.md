@@ -1,5 +1,5 @@
 # Wiki 
-The wiki containes various documentation and guidelines for the projects develloped in the distributed technologies team. 
+The wiki contains various documentation and guidelines for the projects developed in the distributed technologies team. 
 
 ## Git
 - [Convensions](git/conventions.md)
