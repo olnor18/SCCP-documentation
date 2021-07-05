@@ -22,4 +22,4 @@ And may further contain three folders:
 
 ## Subcharts
 
-When we use charts that are made by a third party we will reference it through an umbrella chart, as described in [Umbrella charts](). 
+When we use charts that are made by a third party we will reference it through an umbrella chart, as described in [Umbrella charts](umbrella-charts.md). 
