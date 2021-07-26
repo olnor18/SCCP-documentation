@@ -10,4 +10,5 @@ The wiki contains various documentation and guidelines for the projects develope
 - [Github workflows](git/workflows.md)
 ## Helm 
 - [Helm](helm/helm.md)
+- [Testing](helm/test.md)
 - [Umbrella charts](helm/umbrella-charts.md)
