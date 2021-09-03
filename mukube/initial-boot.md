@@ -18,7 +18,6 @@
 1. Third boot
    1. The TPM is used for unlocking the encrypted partition
    1. Normal boot
-1. The encrypted partition is 
 
 Notes:
 * We need to reboot after enrolling the Secure Boot keys for new PCR7 ("Secure Boot Policy") measurements
