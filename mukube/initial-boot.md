@@ -7,7 +7,9 @@
         1. A new genereated machine-id
         1. The generated Secure Boot keys
       * A empty keyfile is used as key
-      * The operation should be atomic, i.e. the partition table is written after fs and files have been copied (TBC, see [this upstream ML post](https://lists.freedesktop.org/archives/systemd-devel/2020-May/044599.html))
+      * The operation should be atomic, i.e. the partition table is written after the fs and files have been copied (TBC, see [this upstream ML discussion](https://lists.freedesktop.org/archives/systemd-devel/2020-May/044599.html))
+   1. The bootloader is signed
+   1. A [Unified Kernel Image](https://systemd.io/BOOT_LOADER_SPECIFICATION/#type-2-efi-unified-kernel-images) is created and signed
    1. The Secure Boot keys are enrolled
    1. Reboot before [`sysinit.target`](https://www.freedesktop.org/software/systemd/man/systemd.special.html#sysinit.target) or [`multi-user.target`](https://www.freedesktop.org/software/systemd/man/systemd.special.html#multi-user.target) is reached (not decided yet)
 1. Second boot
