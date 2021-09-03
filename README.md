@@ -13,4 +13,5 @@ The wiki contains various documentation and guidelines for the projects develope
 - [Testing](helm/test.md)
 - [Umbrella charts](helm/umbrella-charts.md)
 ## mukube
-- [Secure Boot](mukube/secure-boot.md)
+- [Secure Boot](mukube/trusted_execution/secure-boot.md)
+- [TPM](mukube/trusted_execution/tpm.md)
