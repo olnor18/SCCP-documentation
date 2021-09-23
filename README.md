@@ -15,3 +15,4 @@ The wiki contains various documentation and guidelines for the projects develope
 ## mukube
 - [Secure Boot](mukube/trusted_execution/secure-boot.md)
 - [TPM](mukube/trusted_execution/tpm.md)
+- [Virtualization management platform](mukube/virtualization-management-platform.md)
