@@ -28,7 +28,7 @@ The full explanation can be found in [The Meaning of all the UEFI Keys](https://
 
 From the [UEFI Specification Version 2.9 (March 2021)](https://uefi.org/sites/default/files/resources/UEFI_Spec_2_9_2021_03_18.pdf) (page 1697 and 1698).
 
-![](images/secure-boot-modes.png)
+![](../images/secure-boot-modes.png)
 
 **Setup Mode**
 
