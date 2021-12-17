@@ -16,3 +16,4 @@ The wiki contains various documentation and guidelines for the projects develope
 - [Secure Boot](mukube/trusted_execution/secure-boot.md)
 - [TPM](mukube/trusted_execution/tpm.md)
 - [Virtualization management platform](mukube/virtualization-management-platform.md)
+- [Production image creation](mukube/production-image-creation.md)
