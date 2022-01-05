@@ -1,14 +1,28 @@
 <img src="images/Energinet-logo.png" width="250" style="margin-bottom: 3%">
 
 # Overview
-Secure compute and communication platform(SCCP) is a highly available, fast, secure, robust platform which will run future applications for the energy grid in Denmark. The platform consists of three main components: 
+The Secure Compute and Communication Platform (SCCP) project is an attemt at creating a modern, fast, secure, robust, and uniform  platform for running a variety of application suites for running and monitoring the Danish energy grid.
+The platform is made up of multiple components: 
 
-### Mukube  
-Mukube is the operating system on which SCCP runs. It is a configuration of Poky, the Yocto project's reference distribution. To read more on Mukube, please refer to the [documentation](www.url-to-mukube-docs-that-i-could-not-find.com).
+### Hardware
+Hardware plays an essential part in the design of the platform. The platform rests on multiple servers that participate in a kubernetes cluster which provide redundancy. 
+Eventually hardware based trust should become the pillar.
+
+### mukube  
+Mukube is the operating system of SCCP. It is a custom linux distribution built using the [Yocto Project](https://www.yoctoproject.org/) and is preconfigured. Features of mukube are:
+
+* RAM based file system using zram
+* secureboot verifying a Unified Kernel Image
+
+For details on mukube, please refer to the [mukube repository](https://github.com/distributed-technologies/mukube).
+
 ### Kubernetes
-Once the operating system boots, it will automatically deploy Kubernetes and attempt to join the cluster created by the first master node. Kubernetes is a container orchestration tool and more on this can be found [here](https://kubernetes.io/).
+At the end of the boot seqence mukube deploys a Kubernetes cluster. [Kubernetes](https://kubernetes.io/) is a container orchestration tool responsible for scheduling and supervising workloads on the platform.
+
 ### Yggdrasil
-Yggdrasil is the top part of the platform that boots on top of Kubernetes. Once the Kubernetes cluster is up, Yggdrasil will automatically be deployed onto the cluster and bootstraps all services and applications into a running state. One of these services is a GitOps operator, which allows for easy configuration of the environment. More on Yggdrasil can be found [here](https://github.com/distributed-technologies/yggdrasil).
+Yggdrasil describes the applications and services that run on the platform. Once the Kubernetes cluster is up, Yggdrasil is automatically deployed. This results in the bootstrapping of services and applications of the platform.
+
+Importantly, one of these services is a GitOps operator ([ArgoCD](https://argo-cd.readthedocs.io/en/stable/)), which ensures other services and applications get deployed, and allows for easy configuration of the environment. Information about Yggdrasil and deploying applications can be found [here](https://github.com/distributed-technologies/yggdrasil).
 
 # Getting started
 This section will go into detail on how you can deploy SCCP onto different architectures. 
@@ -61,7 +75,7 @@ The project uses a lot of cloud native open source projects. We are currently us
 # For developers
 
 ## Git
-- [Convensions](git/conventions.md)
+- [Conventions](git/conventions.md)
 - [Branch naming and use](git/branches.md)
 - [Main branch protection](git/main-branch.md)
 - [Repository creation](git/repo_creation.md)
