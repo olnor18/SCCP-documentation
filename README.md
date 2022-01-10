@@ -1,7 +1,7 @@
 <img src="images/Energinet-logo.png" width="250" style="margin-bottom: 3%">
 
 # Overview
-The Secure Compute and Communication Platform (SCCP) project is an attemt at creating a modern, fast, secure, robust, and uniform  platform for running a variety of application suites for running and monitoring the Danish energy grid.
+The Secure Compute and Communication Platform (SCCP) project is an attempt at creating a modern, fast, secure, robust, and uniform platform for running a variety of application suites for running and monitoring the Danish energy grid.
 The platform is made up of multiple components: 
 
 ### Hardware
@@ -9,10 +9,10 @@ Hardware plays an essential part in the design of the platform. The platform res
 Eventually hardware based trust should become the pillar.
 
 ### mukube  
-Mukube is the operating system of SCCP. It is a custom linux distribution built using the [Yocto Project](https://www.yoctoproject.org/) and is preconfigured. Features of mukube are:
+Mukube is the operating system of SCCP. It is a custom Linux distribution built using the [Yocto Project](https://www.yoctoproject.org/) and is preconfigured. Features of mukube are:
 
 * RAM based file system using zram
-* secureboot verifying a Unified Kernel Image
+* Secure Boot support
 
 For details on mukube, please refer to the [mukube repository](https://github.com/distributed-technologies/mukube).
 
@@ -24,17 +24,20 @@ Yggdrasil describes the applications and services that run on the platform. Once
 
 Importantly, one of these services is a GitOps operator ([ArgoCD](https://argo-cd.readthedocs.io/en/stable/)), which ensures other services and applications get deployed, and allows for easy configuration of the environment. Information about Yggdrasil and deploying applications can be found [here](https://github.com/distributed-technologies/yggdrasil).
 
-# Getting started
-This section will go into detail on how you can deploy SCCP onto different architectures. 
+# Deploying
+This section will go into detail on how you can deploy SCCP onto different architectures.
 
 ### Azure
 If you would like to deploy the platform onto Azure for development purposes, please refer to the [Yggdrasil documentation](https://github.com/distributed-technologies/yggdrasil) which provides an in-depth guide on how to deploy the platform on Azure. 
 
-### Hardware
-To deploy SCCP on bare metal...
+### Deploy to a VM
+In order to build the mukube image, refer to the [mukube repository](https://github.com/distributed-technologies/mukube). To configure the image one needs a configuration, created with the [mukube-configurator tool](https://github.com/distributed-technologies/mukube-configurator).
+During the first boot the image copies the content a partition labelled `config` to the main file system ([see this](https://github.com/distributed-technologies/mukube/blob/main/meta-k8s-setup/recipes-k8s-configuration/k8s-configuration/files/copy-config-to-state.service)). Thus in order to boot the image with the configuration you must either attach the boot configuration as an additional disk labelled `config` or edit the partition table of the mukube image and add it there, [see](https://github.com/distributed-technologies/wiki/blob/main/mukube/production-image-creation.md). E.g.
+1. To deploy a virtual setup runnnig libvirt, see our [terraform module](https://github.com/distributed-technologies/mukube-terraform).
+2. To boot in a VMWare setup the it is possible to convert the mukube image to the vmdk format.
 
-### Virtual Machines
-...
+### Deploy to hardware
+The process is the similar to deploying to VMs. Currently this is untested.
 
 # Design choices
 The platform has been designed with many different use cases in mind. It can be deployed on both cloud as well as bare metal. There is no strict requirement for a number of nodes you need in your Kubernetes cluster, however, the platform has been developed with a constant goal of achieving high availability. 
