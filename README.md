@@ -1,26 +1,43 @@
 <img src="images/Energinet-logo.png" width="250" style="margin-bottom: 3%">
 
 # Overview
-Secure compute and communication platform(SCCP) is a highly available, fast, secure, robust platform which will run future applications for the energy grid in Denmark. The platform consists of three main components: 
+The Secure Compute and Communication Platform (SCCP) project is an attempt at creating a modern, fast, secure, robust, and uniform platform for running a variety of application suites for running and monitoring the Danish energy grid.
+The platform is made up of multiple components: 
 
-### Mukube  
-Mukube is the operating system on which SCCP runs. It is a configuration of Poky, the Yocto project's reference distribution. To read more on Mukube, please refer to the [documentation](www.url-to-mukube-docs-that-i-could-not-find.com).
+### Hardware
+Hardware plays an essential part in the design of the platform. The platform rests on multiple servers that participate in a kubernetes cluster which provide redundancy. 
+Eventually hardware based trust should become the pillar.
+
+### mukube  
+Mukube is the operating system of SCCP. It is a custom Linux distribution built using the [Yocto Project](https://www.yoctoproject.org/) and is preconfigured. Features of mukube are:
+
+* RAM based file system using zram
+* Secure Boot support
+
+For details on mukube, please refer to the [mukube repository](https://github.com/distributed-technologies/mukube).
+
 ### Kubernetes
-Once the operating system boots, it will automatically deploy Kubernetes and attempt to join the cluster created by the first master node. Kubernetes is a container orchestration tool and more on this can be found [here](https://kubernetes.io/).
-### Yggdrasil
-Yggdrasil is the top part of the platform that boots on top of Kubernetes. Once the Kubernetes cluster is up, Yggdrasil will automatically be deployed onto the cluster and bootstraps all services and applications into a running state. One of these services is a GitOps operator, which allows for easy configuration of the environment. More on Yggdrasil can be found [here](https://github.com/distributed-technologies/yggdrasil).
+At the end of the boot seqence mukube deploys a Kubernetes cluster. [Kubernetes](https://kubernetes.io/) is a container orchestration tool responsible for scheduling and supervising workloads on the platform.
 
-# Getting started
-This section will go into detail on how you can deploy SCCP onto different architectures. 
+### Yggdrasil
+Yggdrasil describes the applications and services that run on the platform. Once the Kubernetes cluster is up, Yggdrasil is automatically deployed. This results in the bootstrapping of services and applications of the platform.
+
+Importantly, one of these services is a GitOps operator ([ArgoCD](https://argo-cd.readthedocs.io/en/stable/)), which ensures other services and applications get deployed, and allows for easy configuration of the environment. Information about Yggdrasil and deploying applications can be found [here](https://github.com/distributed-technologies/yggdrasil).
+
+# Deploying
+This section will go into detail on how you can deploy SCCP onto different architectures.
 
 ### Azure
 If you would like to deploy the platform onto Azure for development purposes, please refer to the [Yggdrasil documentation](https://github.com/distributed-technologies/yggdrasil) which provides an in-depth guide on how to deploy the platform on Azure. 
 
-### Hardware
-To deploy SCCP on bare metal...
+### Deploy to a VM
+In order to build the mukube image, refer to the [mukube repository](https://github.com/distributed-technologies/mukube). To configure the image one needs a configuration, created with the [mukube-configurator tool](https://github.com/distributed-technologies/mukube-configurator).
+During the first boot the image copies the content a partition labelled `config` to the main file system ([see this](https://github.com/distributed-technologies/mukube/blob/main/meta-k8s-setup/recipes-k8s-configuration/k8s-configuration/files/copy-config-to-state.service)). Thus in order to boot the image with the configuration you must either attach the boot configuration as an additional disk labelled `config` or edit the partition table of the mukube image and add it there, [see](https://github.com/distributed-technologies/wiki/blob/main/mukube/production-image-creation.md). E.g.
+1. To deploy a virtual setup runnnig libvirt, see our [terraform module](https://github.com/distributed-technologies/mukube-terraform).
+2. To boot in a VMWare setup the it is possible to convert the mukube image to the vmdk format.
 
-### Virtual Machines
-...
+### Deploy to hardware
+The process is the similar to deploying to VMs. Currently this is untested.
 
 # Design choices
 The platform has been designed with many different use cases in mind. It can be deployed on both cloud as well as bare metal. There is no strict requirement for a number of nodes you need in your Kubernetes cluster, however, the platform has been developed with a constant goal of achieving high availability. 
@@ -40,6 +57,11 @@ These are just some of the many requirements there were for the platform and man
 
 ### Yocto
 After having completed a successfull PoC of the platform, we soon realized that the build method we were using was slow and did not have all the features we needed. We spent some time looking for other build tools and found the Yocto project. Yocto takes advantage of caching layers of the operating system, which means that if anything changes in a particular layer, only that layer has to be recompiled. This sped up OS compiling significantly and has allowed us to automatic builds. 
+
+# Decision log
+Any decisions made during meetings about SCCP that can be open to the public should be listed here.
+
+- 11.01.2022: A decision was made about looking into the possibility of packaging Yggdrasil and only requiring an environment repository to configure the platform.
 
 # Repos related to the project
 
@@ -61,7 +83,7 @@ The project uses a lot of cloud native open source projects. We are currently us
 # For developers
 
 ## Git
-- [Convensions](git/conventions.md)
+- [Conventions](git/conventions.md)
 - [Branch naming and use](git/branches.md)
 - [Main branch protection](git/main-branch.md)
 - [Repository creation](git/repo_creation.md)
