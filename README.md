@@ -61,7 +61,7 @@ After having completed a successfull PoC of the platform, we soon realized that 
 # Decision log
 Any decisions made during meetings about SCCP that can be open to the public should be listed here.
 
-- 11.01.2022: A decision was made about looking into the possibility of packaging Yggdrasil and only requiring an environment repository to configure the platform.
+- 2021-01-11: A decision was made about looking into the possibility of packaging Yggdrasil and only requiring an environment repository to configure the platform.
 
 # Repos related to the project
 
