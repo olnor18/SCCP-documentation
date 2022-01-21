@@ -1,0 +1,2 @@
+# This file contains our decision log for SCCP
+- 2021-01-11: A decision was made about looking into the possibility of packaging Yggdrasil and only requiring an environment repository to configure the platform.

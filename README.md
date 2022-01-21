@@ -59,11 +59,10 @@ These are just some of the many requirements there were for the platform and man
 After having completed a successfull PoC of the platform, we soon realized that the build method we were using was slow and did not have all the features we needed. We spent some time looking for other build tools and found the Yocto project. Yocto takes advantage of caching layers of the operating system, which means that if anything changes in a particular layer, only that layer has to be recompiled. This sped up OS compiling significantly and has allowed us to automatic builds. 
 
 # Decision log
-Any decisions made during meetings about SCCP that can be open to the public should be listed here.
-
-- 2021-01-11: A decision was made about looking into the possibility of packaging Yggdrasil and only requiring an environment repository to configure the platform.
+Any decisions made during meetings about SCCP that are open to the public can be found in the [decision log](docs/decision-log.md).
 
 # Repos related to the project
+This is a list of the repositories that have a relation to the project and what they contain.
 
 ## [Mukube](https://github.com/distributed-technologies/mukube)
 Mukube is the repository for the Poky-based operating system we build. 
