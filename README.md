@@ -1,7 +1,7 @@
 ![Energinet logo](images/Energinet-logo.png)
 
 # Overview
-The Secure Compute and Communication Platform (SCCP) project is an attempt at creating a modern, fast, secure, robust, and uniform platform for running a variety of application suites for running and monitoring the Danish energy grid.
+The Secure Compute and Communication Platform (SCCP) project is an attempt at creating a modern, fast, secure, robust, and uniform platform for running a variety of application suites for running and monitoring infrastructure.
 The platform is made up of multiple components: 
 
 ### Hardware
