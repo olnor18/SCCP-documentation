@@ -5,7 +5,7 @@ The Secure Compute and Communication Platform (SCCP) project is an attempt at cr
 The platform is made up of multiple components: 
 
 ### Hardware
-Hardware plays an essential part in the design of the platform. The platform rests on multiple servers that participate in a kubernetes cluster which provide redundancy. 
+Hardware plays an essential part in the design of the platform. The platform rests on multiple servers that participate in a Kubernetes cluster which provide redundancy. 
 Eventually hardware based trust should become the pillar.
 
 ### mukube  
