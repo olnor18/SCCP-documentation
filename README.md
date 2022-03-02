@@ -97,3 +97,4 @@ The project uses a lot of cloud native open source projects. We are currently us
 - [TPM](mukube/trusted_execution/tpm.md)
 - [Virtualization management platform](mukube/virtualization-management-platform.md)
 - [Production image creation](mukube/production-image-creation.md)
+- [OTA (over-the-air) updating](mukube/ota-updating.md)
