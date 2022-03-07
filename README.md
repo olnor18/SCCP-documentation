@@ -98,3 +98,4 @@ The project uses a lot of cloud native open source projects. We are currently us
 - [Virtualization management platform](mukube/virtualization-management-platform.md)
 - [Production image creation](mukube/production-image-creation.md)
 - [OTA (over-the-air) updating](mukube/ota-updating.md)
+- [Container distributions (rolling updates and secure boot)](container-distributions.md)
