@@ -1,5 +1,8 @@
 ![Energinet logo](images/Energinet-logo.png)
 
+# Deprecation warning
+This project is no longer under maintenance as the project is under evaluation. This mean that the open source parts of the project is paused and might be resumed in the future, without guarantee. 
+
 # Overview
 The Secure Compute and Communication Platform (SCCP) project is an attempt at creating a modern, fast, secure, robust, and uniform platform for running a variety of application suites for running and monitoring infrastructure.
 The platform is made up of multiple components: 
